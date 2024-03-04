@@ -7,7 +7,7 @@
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
     "dev": "npm run start",
     "build": "tsc",
-    "serve": "node dist/server.js",
+    "serve": "npm run build && node dist/server.js",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier": "prettier --write .",
