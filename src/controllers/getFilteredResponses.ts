@@ -6,6 +6,13 @@ import { GetFilteredResponsesRequest } from '../types';
 
 const DEFAULT_LIMIT = 150;
 
+/**
+ * Filters form submissions based on the provided filters. Fetches the form submissions from the
+ * fillout API. Calculates new total responses and page count based on the filtered submissions.
+ *
+ * The limit query is not used in the fillout API call to fetch the maximum number of submissions.
+ * But it is used to limit the number of responses returned to the client after filtering.
+ */
 export const getFilteredResponses = async (
   req: GetFilteredResponsesRequest,
   res: Response,
