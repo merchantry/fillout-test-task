@@ -20,19 +20,13 @@ function compareNumberOrDate<T extends number | Date>(
     return false;
   }
 
-  if (
-    ![QuestionType.NumberInput, QuestionType.DatePicker].includes(question.type as QuestionType)
-  ) {
-    throw new InputError(`Cannot compare ${question.type} with greater_than or less_than`);
-  }
-
   switch (question.type) {
     case QuestionType.NumberInput:
       return compare(question.value as T, value as T);
     case QuestionType.DatePicker:
       return compare(new Date(question.value) as T, new Date(value as string) as T);
     default:
-      return false;
+      throw new InputError(`Cannot compare ${question.type} with greater_than or less_than`);
   }
 }
 
